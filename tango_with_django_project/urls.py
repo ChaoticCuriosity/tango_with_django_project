@@ -24,4 +24,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
+    # above maps any URLs starting
+    # with rango/to be handled by the rango application
+    url(r'^admin/', admin.site.urls),
 ]
