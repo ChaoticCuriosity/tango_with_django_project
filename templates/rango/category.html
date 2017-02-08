@@ -5,15 +5,14 @@
 </head>
 
 <body>
-	<!{% if category %}>
 	<h1>{{ category.name }} </h1>
 		<div>
 		{% if category %}
 			<a href="/rango/category/{{category.slug}}/add_page/">Add Page</a><br/>
 			{% if pages %}
 				<ul>
-				{% for pages in pages %}
-					<li><a href="{{ page.url }}">{{ page.title}}</a></li>
+				{% for page in pages %}
+					<li><a href="{{ page.url }}">{{ page.title }}</a></li>
 				{% endfor %}
 				</ul>
 			{% else %}
@@ -23,10 +22,11 @@
 			The specified category does not exist!
 		{% endif %}
 	</div>
-	
-	{if category %}
+	<div>
+	{% if category %}
 		<a href="/rango/category/{{category.slug}}/add_page/">Add Page</a><br/>
 	{% endif %}
 	<a href="/rango/">Index</a><br />
+	</div>
 </body>
 </html>
