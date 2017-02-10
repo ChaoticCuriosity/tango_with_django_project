@@ -1,5 +1,5 @@
 from django import forms
-from rango.models import Page, Category
+from rango.models import Page, Category, UserProfile
 from django.contrib.auth.models import User
 
 class CategoryForm(forms.ModelForm):
@@ -32,7 +32,7 @@ class PageForm(forms.ModelForm):
 
             return cleaned_data
 
-class UseForm(forms.ModelForm):
+class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
 
     class Meta:
@@ -40,9 +40,7 @@ class UseForm(forms.ModelForm):
         fields = ('username', 'email', 'password')
 
 class UserProfileForm(forms.ModelForm):
-    website = forms.URLField(required=False)
-    picture = forms.ImageField(required=False)
 
     class Meta:
         model = UserProfile
-        exclude = ('user',)
+        fields = ('website', 'picture')
